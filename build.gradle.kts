@@ -25,15 +25,24 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+
+	// Webflux & Coroutine
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	runtimeOnly("org.postgresql:postgresql")
-	runtimeOnly("org.postgresql:r2dbc-postgresql")
+
+
+	// Kotlin + R2BC
+	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+	implementation("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
+
+
+	// YAML Handler
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
+	// Test module
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
